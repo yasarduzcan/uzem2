@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            margin: 0;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container input[type="submit"]:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Giriş Yap</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+            <input type="password" id="password" placeholder="Şifre" required>
+            <input type="submit" value="Giriş">
+        </form>
+    </div>
+
+    <script>
+        // Kullanıcı adı ve şifre çiftleri
+        const users = {
+            "başarıuzem1": "aesde",
+            "başarıuzem2": "fghbj",
+            "başarıuzem3": "kjnbo",
+            "başarıuzem4": "prfdt",
+            "başarıuzem5": "ubvfy",
+            "başarıuzem6": "zthgd",
+            "başarıuzem7": "eukli",
+            "başarıuzem8": "jmnbn",
+            "başarıuzem9": "ovfgs",
+            "başarıuzem10": "tgfdx",
+            "başarıuzem11": "ydftc",
+            "başarıuzem12": "dyhgh",
+            "başarıuzem13": "iazcm",
+            "başarıuzem14": "ntrfr",
+            "başarıuzem15": "srfgw",
+            "başarıuzem16": "xbhnb",
+            "başarıuzem17": "ctfdg",
+            "başarıuzem18": "hvfdl",
+            "başarıuzem19": "mrfdq",
+            "başarıuzem20": "rcvgv",
+            "başarıuzem21": "wxdfa",
+            "başarıuzem22": "bvgff",
+            "başarıuzem23": "gedsk",
+            "başarıuzem24": "lrdfp",
+            "başarıuzem25": "qvghu",
+            "başarıuzem26": "vvftz",
+            "başarıuzem27": "adfrf",
+            "başarıuzem28": "ftghk",
+            "başarıuzem29": "krgyp",
+            "başarıuzem30": "pfgvt",
+            "başarıuzem31": "ucfty",
+            "başarıuzem32": "zvgyd",
+            "başarıuzem33": "ebgyi",
+            "başarıuzem34": "jtren",
+            "başarıuzem35": "oawes",
+            "başarıuzem36": "ttfgx",
+            "başarıuzem37": "ymnbc",
+            "başarıuzem38": "dbgth",
+            "başarıuzem39": "iyhjm",
+            "başarıuzem40": "nftyr",
+            "başarıuzem41": "styuw",
+            "başarıuzem42": "xsfhb",
+            "başarıuzem43": "cdthjg",
+            "başarıuzem44": "hpoll",
+            "başarıuzem45": "mnhtq",
+            "başarıuzem46": "redfv",
+            "başarıuzem47": "wcdfa",
+            "başarıuzem48": "brtyf",
+            "başarıuzem49": "gfghk",
+            "başarıuzem50": "ltyup",
+            "başarıuzem51": "qedfu",
+            "başarıuzem52": "vcftz",
+            "başarıuzem53": "acdff",
+            "başarıuzem54": "frfgk",
+            "başarıuzem55": "krtyp",
+            "başarıuzem56": "prfgt",
+            "başarıuzem57": "uedfy",
+            "başarıuzem58": "zgbnd",
+            "başarıuzem59": "emnbi",
+            "başarıuzem60": "jgvfn",
+            "başarıuzem61": "ovfrs",
+            "başarıuzem62": "tedfx",
+            "başarıuzem63": "yvfdc",
+            "başarıuzem64": "dcdrh",
+            "başarıuzem65": "icdfm",
+            "başarıuzem66": "nertr",
+            "başarıuzem67": "styuw",
+            "başarıuzem68": "xfgtb",
+            "başarıuzem69": "ctyug",
+            "başarıuzem70": "htgfl",
+            "başarıuzem71": "mnopq",
+            "başarıuzem72": "rstuv",
+            "başarıuzem73": "wxyza",
+            "başarıuzem74": "bcdef",
+            "başarıuzem75": "ghijk",
+            "başarıuzem76": "lmnop",
+            "başarıuzem77": "qrstu",
+            "başarıuzem78": "vwxyz",
+            "başarıuzem79": "abcdf",
+            "başarıuzem80": "fghik",
+            "başarıuzem81": "klmnp",
+            "başarıuzem82": "pqrst",
+            "başarıuzem83": "uvwxy",
+            "başarıuzem84": "zabcd",
+            "başarıuzem85": "efghi",
+            "başarıuzem86": "jklmn",
+            "başarıuzem87": "opqrs",
+            "başarıuzem88": "tuvwx",
+            "başarıuzem89": "yzabc",
+            "başarıuzem90": "defgh",
+            "başarıuzem91": "ijklm",
+            "başarıuzem92": "nopqr",
+            "başarıuzem93": "stuvw",
+            "başarıuzem94": "xyzab",
+            "başarıuzem95": "cdefg",
+            "başarıuzem96": "hijkl",
+            "başarıuzem97": "mnopq",
+            "başarıuzem98": "rstuv",
+            "başarıuzem99": "wxyza",
+            "başarıuzem100": "bcdef"
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            console.log("Kullanıcı adı:", username);
+            console.log("Şifre:", password);
+
+            if (users[username] && users[username] === password) {
+                console.log("Giriş başarılı, yönlendiriliyor...");
+                window.location.href = "https://www.basariuzem.com/online-ders";
+            } else {
+                console.log("Kullanıcı adı veya şifre yanlış.");
+                alert('Kullanıcı adı veya şifre yanlış.');
+            }
+        });
+    </script>
+</body>
+</html>

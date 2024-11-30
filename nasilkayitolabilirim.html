@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasıl Kayıt Olabilirim? - Başarı UZEM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Üst Bar -->
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">
+                Başarı UZEM
+            </div>
+            <!-- Masaüstü Menü -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-blue-600">Ana Sayfa</a>
+                <a href="kurslarimiz.html" class="hover:text-blue-600">Kurslarımız</a>
+                <a href="nasilkayitolabilirim.html" class="hover:text-blue-600">Nasıl Kayıt Olabilirim?</a>
+                <a href="yorumlar.html" class="hover:text-blue-600">Öğrenci Yorumları</a>
+                <a href="yayinlar.html" class="hover:text-blue-600">Yayınlarımız</a>
+            </nav>
+            <!-- Mobil Menü Butonu -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <!-- Giriş/Üye Ol Butonları -->
+            <div class="hidden md:flex space-x-4">
+                <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Giriş Yap</a>
+                <a href="register.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Üye Ol</a>
+            </div>
+        </div>
+        <!-- Mobil Menü -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 py-2 bg-gray-50">
+            <a href="index.html" class="block py-2 hover:text-blue-600">Ana Sayfa</a>
+            <a href="kurslarimiz.html" class="block py-2 hover:text-blue-600">Kurslarımız</a>
+            <a href="nasilkayitolabilirim" class="block py-2 hover:text-blue-600">Nasıl Kayıt Olabilirim?</a>
+            <a href="yorumlar.html" class="block py-2 hover:text-blue-600">Öğrenci Yorumları</a>
+            <a href="yayinlar.html" class="block py-2 hover:text-blue-600">İletişim</a>
+            <div class="flex space-x-4 py-2">
+                <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Giriş Yap</a>
+                <a href="register.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Üye Ol</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Başlık -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Nasıl Kayıt Olabilirim?</h1>
+            <p class="text-gray-600">Başarı UZEM'e kayıt olmak için aşağıdaki adımları takip edebilirsiniz.</p>
+        </div>
+
+        <!-- Kayıt Adımları -->
+        <div class="grid md:grid-cols-4 gap-6 mb-16">
+            <!-- Adım 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">1. Kurs Seçimi</h3>
+                <p class="text-gray-600">Kayıt olmak istediğiniz kursu detaylı olarak inceleyin ve size en uygun olanı seçin.</p>
+            </div>
+
+            <!-- Adım 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">2. Ödeme İşlemi</h3>
+                <p class="text-gray-600">Shopier üzerinden güvenli bir şekilde ödemenizi gerçekleştirin.</p>
+            </div>
+
+            <!-- Adım 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">3. Üyelik Kaydı</h3>
+                <p class="text-gray-600">Sitemize üye kaydınızı oluşturun ve admin onayını bekleyin.</p>
+            </div>
+
+            <!-- Adım 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">4. Eğitime Başlama</h3>
+                <p class="text-gray-600">Canlı dersler ve tüm içeriklere anında erişim sağlayın.</p>
+            </div>
+        </div>
+
+        <!-- Avantajlar -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Kayıt Olmanın Avantajları</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Avantaj 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-3xl text-green-600 mb-4">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Canlı Dersler</h3>
+                    <p class="text-gray-600">Uzman eğitmenlerle canlı ders imkanı</p>
+                </div>
+
+                <!-- Avantaj 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-3xl text-green-600 mb-4">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Zengin İçerik</h3>
+                    <p class="text-gray-600">Kapsamlı ders notları ve soru bankaları</p>
+                </div>
+
+                <!-- Avantaj 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-3xl text-green-600 mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">7/24 Erişim</h3>
+                    <p class="text-gray-600">İstediğiniz zaman, istediğiniz yerden erişim</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Giriş/Üyelik ve Destek -->
+        <div class="text-center">
+            <!-- Giriş/Üyelik Butonları -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6">Hemen Başlayın</h2>
+                <div class="flex justify-center gap-4">
+                    <a href="login.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Giriş Yap
+                    </a>
+                    <a href="register.html" class="inline-flex items-center bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-user-plus mr-2"></i>
+                        Üye Ol
+                    </a>
+                </div>
+            </div>
+
+            <!-- WhatsApp Destek -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Hemen Destek Alın</h2>
+                <a href="https://wa.me/905445694037" class="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                    WhatsApp Destek Hattı
+                    <span class="ml-2">+90 544 569 4037</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobil menü işlevselliği
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

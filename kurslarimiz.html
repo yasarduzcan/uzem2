@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başarı UZEM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">
+                Başarı UZEM
+            </div>
+            
+            <!-- Masaüstü Menü -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-blue-600">Ana Sayfa</a>
+                <a href="kurslarimiz.html" class="hover:text-blue-600">Kurslarımız</a>
+                <a href="nasilkayitolabilirim.html" class="hover:text-blue-600">Nasıl Kayıt Olabilirim?</a>
+                <a href="yorumlar.html" class="hover:text-blue-600">Öğrenci Yorumları</a>
+                <a href="yayinlar.html" class="hover:text-blue-600">Yayınlarımız</a>
+            </nav>
+
+            <!-- Mobil Menü Butonu -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-toggle" class="text-blue-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Giriş ve Üye Ol Butonları -->
+            <div class="flex space-x-4">
+                <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Giriş Yap</a>
+                <a href="register.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Üye Ol</a>
+            </div>
+        </div>
+
+        <!-- Mobil Menü Açılır Penceresi -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="index.html" class="hover:text-blue-600">Ana Sayfa</a>
+                <a href="kurslarimiz.html" class="hover:text-blue-600">Kurslarımız</a>
+                <a href="nasilkayitolabilirim.html" class="hover:text-blue-600">Nasıl Kayıt Olabilirim?</a>
+                <a href="yorumlar.html" class="hover:text-blue-600">Öğrenci Yorumları</a>
+                <a href="yayinlar.html" class="hover:text-blue-600">Yayınlarımız</a>
+            </div>
+        </div>
+    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başarı UZEM - Kurslarımız</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function openTab(tabName) {
+            const canliDersTab = document.getElementById('canli-ders-tab');
+            const videoDersTab = document.getElementById('video-ders-tab');
+            const canliDersContent = document.getElementById('canli-ders-content');
+            const videoDersContent = document.getElementById('video-ders-content');
+
+            if (tabName === 'canli-ders') {
+                canliDersTab.classList.add('bg-blue-600', 'text-white');
+                videoDersTab.classList.remove('bg-blue-600', 'text-white');
+                canliDersContent.classList.remove('hidden');
+                videoDersContent.classList.add('hidden');
+            } else {
+                videoDersTab.classList.add('bg-blue-600', 'text-white');
+                canliDersTab.classList.remove('bg-blue-600', 'text-white');
+                videoDersContent.classList.remove('hidden');
+                canliDersContent.classList.add('hidden');
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Header (Previously Created) -->
+    <header>
+        <!-- Same navigation as before -->
+    </header>
+
+    <!-- Courses Section -->
+    <section class="pt-24 bg-gray-50">
+        <div class="container mx-auto px-4 py-16">
+            <div class="flex justify-center mb-8">
+                <button 
+                    id="canli-ders-tab" 
+                    onclick="openTab('canli-ders')" 
+                    class="px-6 py-3 bg-blue-600 text-white rounded-l-lg focus:outline-none"
+                >
+                    Canlı Dersler
+                </button>
+                <button 
+                    id="video-ders-tab" 
+                    onclick="openTab('video-ders')" 
+                    class="px-6 py-3 bg-gray-200 text-gray-700 rounded-r-lg focus:outline-none"
+                >
+                    Video Dersler
+                </button>
+            </div>
+
+            <!-- Canlı Ders Content -->
+            <div id="canli-ders-content" class="block">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-blue-600">Canlı Dersler</h1>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- KPSS Genel Yetenek Genel Kültür Canlı Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/gkgy.png" alt="KPSS Genel Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">KPSS Genel Yetenek Genel Kültür Canlı Ders</h3>
+                            <p class="text-gray-600 mb-4">Canlı yayında kapsamlı KPSS Genel Yetenek ve Genel Kültür hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 500 saat canlı ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya), Ali Türüt (Tarih), Yakup Gebal (Matematik), Yasin Yıldız (Anayasa), Savaş Doğan (Türkçe)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">3.000 TL</span>
+                                <a href="https://www.shopier.com/29169720" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MEB-AGS Canlı Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/ags.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">MEB-AGS Canlı Ders</h3>
+                            <p class="text-gray-600 mb-4">MEB sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 500 saat canlı ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya), Ali Türüt (Tarih), Yakup Gebal (Matematik), Yasin Yıldız (Anayasa), Savaş Doğan (Türkçe), Nurettin Akman (Mevzuat)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">4.000 TL</span>
+                                <a href="https://www.shopier.com/31161548" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sosyal Bilgiler ÖABT Soru Çözümü -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/sosyal.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Sosyal Bilgiler ÖABT Soru Çözümü</h3>
+                            <p class="text-gray-600 mb-4">ÖABT sınavlarına yönelik canlı yayında detaylı soru çözüm programı</p>
+                            <ul class="mb-4">
+                                <li>• 500 soruda Tarih ve Coğrafya tekrarı canlı ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya), Ali Türüt (Tarih)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Soru Notları</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">500 TL</span>
+                                <a href="https://www.shopier.com/31155869" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarih ÖABT Soru Çözümü -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/tarih.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Tarih ÖABT Soru Çözümü</h3>
+                            <p class="text-gray-600 mb-4">ÖABT sınavlarına yönelik canlı yayında detaylı soru çözüm programı</p>
+                            <ul class="mb-4">
+                                <li>• 500 soruda Tarih  tekrarı canlı ders</li>
+                                <li>• Eğitmenler:Ali Türüt (Tarih)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Soru Notları</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">500 TL</span>
+                                <a href="https://www.shopier.com/31155760" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Coğrafya -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/yasar.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Coğrafya</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Coğrafya sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 60 saat canlı ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">750 TL</span>
+                                <a href="https://www.shopier.com/30334708" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Tarih -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/ali.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Tarih</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Tarih sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 100 saat canlı ders</li>
+                                <li>• Eğitmenler: Ali Türüt (Tarih)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">750 TL</span>
+                                <a href="https://www.shopier.com/30334781" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Matematik -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/yakup.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Matematik Canlı Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Matematik sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 80 saat canlı ders</li>
+                                <li>• Eğitmenler: Yakup Gebal (Matematik)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">750 TL</span>
+                                <a href="https://www.shopier.com/30334868" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Türkçe -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/savas.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Türkçe Canlı Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Türkçe sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 40 saat canlı ders</li>
+                                <li>• Eğitmenler: Savaş Doğan (Türkçe)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">750 TL</span>
+                                <a href="https://www.shopier.com/30334856" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Anayasa -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/yasin.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Anayasa Canlı Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Anayasa sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 32 saat canlı ders</li>
+                                <li>• Eğitmenler: Yasin Yıldız (Anayasa)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">750 TL</span>
+                                <a href="https://www.shopier.com/30334835" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mevzuat -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/nurettin.png" alt="MEB AGS Canlı Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">MEB-AGS Mevzuat Canlı Ders</h3>
+                            <p class="text-gray-600 mb-4">MEB-AGS Mevzuat sınavlarına yönelik canlı yayında detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 30 saat canlı ders</li>
+                                <li>• Eğitmenler: Nurettin Akman (Mevzuat)</li>
+                                <li>• Anlık soru-cevap imkanı</li>
+                                <li>• Eğitmenlerle doğrudan etkileşim</li>
+                                <li>• PDF Ders Notu</li>
+                                <li>• Birebir ilgi ve Rehberlik</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">1000 TL</span>
+                                <a href="https://www.shopier.com/31161681" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Canlı Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+
+            <!-- Video Ders Content -->
+            <div id="video-ders-content" class="hidden">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-blue-600">Video Dersler</h1>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- KPSS Genel Yetenek Genel Kültür Video Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/gkgy.png" alt="KPSS Genel Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">KPSS Genel Yetenek Genel Kültür Video Ders</h3>
+                            <p class="text-gray-600 mb-4">Kayıtlı video derslerle kapsamlı KPSS Genel Yetenek ve Genel Kültür hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 500 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya), Ali Türüt (Tarih), Yakup Gebal (Matematik), Yasin Yıldız (Anayasa), Savaş Doğan (Türkçe)</li>
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">250 TL</span>
+                                <a href="https://www.shopier.com/31161758" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MEB-AGS Video Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/ags.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">MEB-AGS Video Ders</h3>
+                            <p class="text-gray-600 mb-4">MEB sınavlarına yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 500 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya), Ali Türüt (Tarih), Yakup Gebal (Matematik), Yasin Yıldız (Anayasa), Savaş Doğan (Türkçe), Nurettin Akman (Mevzuat)</li>
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">250 TL</span>
+                                <a href="https://www.shopier.com/31161774" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sosyal Bilgiler ÖABT Soru Çözümü -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/sosyal.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Sosyal Bilgiler ÖABT Soru Çözümü Video Ders</h3>
+                            <p class="text-gray-600 mb-4">Sosyal Bilgiler ÖABT Soru Çözümü yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 25 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler: Yaşar Düzcan (Coğrafya), Ali Türüt (Tarih)</li>
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31161786" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarih ÖABT Soru Çözümü -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/tarih.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Tarih ÖABT Soru Çözümü Video Ders</h3>
+                            <p class="text-gray-600 mb-4">Tarih ÖABT Soru Çözümü yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 25 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler:Ali Türüt (Tarih)</li
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31161803" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Coğrafya Video Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/yasar.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Coğrafya Video Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Coğrafya yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 60 saat kayıtlı video ders</li>
+                                <li>• Eğitmen: Yaşar Düzcan (Coğrafya)</li>
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31161965" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Tarih -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/ali.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Tarih Video Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Tarih yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 80 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler:Ali Türüt (Tarih)</li
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31161976" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Matematik -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/yakup.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Matematik Video Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Matematik yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 100 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler:Yakup Gebal (Matematik)</li
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31161988" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Türkçe Video Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/savas.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Türkçe Video Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Türkçe yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 40 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler:Savaş Doğan (Türkçe)</li
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31162004" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGS ve KPSS Anayasa Video Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/yasin.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">AGS ve KPSS Anayasa Video Ders</h3>
+                            <p class="text-gray-600 mb-4">AGS ve KPSS Anayasa yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 15 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler:Yasin Yıldız (Anayasa)</li
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31162017" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mevzuat Video Ders -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="images/nurettin.png" alt="MEB AGS Video Ders" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-600">Mevzuat Video Ders</h3>
+                            <p class="text-gray-600 mb-4">Mevzuat yönelik kayıtlı video derslerle detaylı hazırlık programı</p>
+                            <ul class="mb-4">
+                                <li>• 30 saat kayıtlı video ders</li>
+                                <li>• Eğitmenler:Nurettin Akman (Mevzuat)</li
+                                <li>• İstediğin zaman izle</li>
+                                <li>• Sınırsız tekrar hakkı</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-green-600">100 TL</span>
+                                <a href="https://www.shopier.com/31162032" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Video Kursa Kaydol</a>
+                            </div>
+                        </div>
+                    </div>
+
+    </section>
+    <script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
